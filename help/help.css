@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------
+
+* Filename: help.css
+* Description: General styles for Roborally Instructions
+
+* Author: R. Brian Redd 
+
+== TABLE OF CONTENTS =====================================
+
++ INSTRUCTIONS
+
+--------------------------------------------------------*/  
+
+/* INSTRUCTIONS
+--------------------------------------------------------*/ 
+
+body {
+	padding: 10px;
+	font-family: monospace;
+	overflow: auto;
+	background-color: black;
+	color: #7CB070;
+}
+
+em {
+	font-style: normal;
+	font-weight: bold;
+}
+
+span {
+	font-weight: bold;
+	color: #FFBF00;
+}
+
+a {
+	color: #7CB070;
+	text-decoration: dotted;
+}
+
+a:hover {
+	color: #FFBF00;
+}
+
+h2 {
+	font-size: 1em;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* TOOLTIP
+--------------------------------------------------------*/ 
+
+#preview{
+	position:absolute;
+	border:1px solid #7CB070;
+	background: black;
+	padding: 3px 3px 0px 3px;
+	display:none;
+	color:#fff;
+	}
+
+/*  */

@@ -1,0 +1,261 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+	<title>RoboRally (Beta Build 10.5)</title>
+
+	<link href="styles/rr_v10.4.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="startDialog">
+	<form id="gameForm" name="gameForm">
+		<img id="robopic" src="images/robots/random_Front.png" alt="Choose your Robot"/>
+		<p><label for="playerbot">Choose your Robot: </label>
+		<select id="playerbot" name="playerbot">
+			<option value="random">Random</option>
+		</select></p>
+		<p><label for="numopp">Number of Opponents: </label>
+		<select id="numopp" name="numopp">
+			<option value="1">None (Solo Mission)</option>
+			<option value="2">One (1)</option>
+			<option value="3" selected>Two (2)</option>
+			<option value="4">Three (3)</option>
+			<option value="5">Four (4)</option>
+			<option value="6">Five (5)</option>
+		</select></p>
+		<fieldset>
+			<legend>Type of Rally</legend>
+			<p><input type="radio" id="preset" name="rallytype" value="preset" checked="checked">
+			<label for="preset">Predefined</label>
+			<input type="radio" id="randrally" name="rallytype" value="randrally">
+			<label for="randrally">Build Your Own</label></p>
+			<div class="presetrally">
+				<p class="rallylevels">Difficulty: 
+					<label for="d_easy">Easy</label><input type="checkbox" name="difficulty" id="d_easy" value="d_easy" checked="checked">
+					<label for="d_med">Medium</label><input type="checkbox" name="difficulty" id="d_med" value="d_med">
+					<label for="d_hard">Hard</label><input type="checkbox" name="difficulty" id="d_hard" value="d_hard"></p>
+				<p class="rallylevels">Length: 
+					<label for="l_short">Short</label><input type="checkbox" name="length" id="l_short" value="l_short" checked="checked">
+					<label for="l_med">Medium</label><input type="checkbox" name="length" id="l_med" value="l_med" checked="checked">
+					<label for="l_long">Long</label><input type="checkbox" name="length" id="l_long" value="l_long"></p>
+				<p><label for="whatcourse">Course: </label>
+				<select id="whatcourse" name="whatcourse">
+					<option value="rand">Random (Checked)</option>
+					<option value="randall">Random (All)</option>
+				</select></p>
+			</div>
+			<div class="randomrally">
+				<p>COMING SOON!!!</p>
+				<p style="display:none;"><label for="whatboard">Board: </label>
+				<select id="whatboard" name="whatboard">
+					<option value="rand">Random</option>
+				</select>
+				<label for="whatdock">Dock: </label>
+				<select id="whatdock" name="whatdock">
+					<option value="rand">Random</option>
+					<option value="0">Dock 1</option>
+					<option value="1">Dock 2</option>
+				</select>
+				<label for="numflags">Flags: </label>
+				<select id="numflags" name="numflags">
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+					<option value="4">Four</option>
+				</select></p>
+			</div>
+		</fieldset>
+		<div id="HelpButton1">
+			<div class="oct_button" id="help1">
+				<img class="yellowlight" src="images/oct_button.png" alt="How to Play"/>
+				<p>HOW<br/>TO<br/>PLAY</p>
+			</div>
+		</div>
+		<div id="StartGame">
+			<div class="oct_button" id="submit">
+				<img class="flashinglight" src="images/oct_button.png" alt="Start Game"/>
+				<p>START<br/>GAME</p>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div id="screen">
+	<header id="title">
+		<a href="http://www.wizards.com/default.asp?x=ah/prod/roborally" target="_blank"><img src="images/RRLogo.png" alt="RoboRally"/></a>
+		<div class="openconsole monitor"><p><span>PLAYER</span><br/>CONSOLE</p></div>
+		<div class="openlog monitor"><p>LOG</p></div>
+		<div id="gamestats" class="monitor">
+			Rally: <span id="ral"></span>
+			<p>Turn Number: <span id="trn"></span></p>
+		</div>
+	</header>
+	<div id="robomove">
+		<div id="robots">
+			<h4>Robots</h4>
+			<div class="robostats" id="stat0">
+				<img src="images/robots/none_Front.png" alt="Player's Robot"/>
+				<div class="stats">
+					<span class="rdesig"></span>
+					<br/>Health: <div class="dmg"></div>
+					<br/>Lives: <div class="lvs"></div>
+					<br/>Flags: <div class="flg"></div>
+				</div>
+			</div>
+			<div class="robomoves" id="regs0"></div>
+		</div>
+		<div id="HelpButton2">
+			<div class="oct_button" id="help2">
+				<img class="yellowlight" src="images/oct_button.png" alt="Help"/>
+				<p>HELP</p>
+			</div>
+		</div>
+	</div>
+	<div id="gamespace">
+	</div>
+	<div id="timingstatus">
+		<h4>TURN ORDER</h4>
+		<div id="regphases">
+			<!--div id="accordion"-->
+				<h3 id="reg1" class="regindicator"><!--a href="#"-->One<!--/a--></h3>
+				<h3 id="reg2" class="regindicator"><!--a href="#"-->Two<!--/a--></h3>
+				<h3 id="reg3" class="regindicator"><!--a href="#"-->Three<!--/a--></h3>
+				<h3 id="reg4" class="regindicator"><!--a href="#"-->Four<!--/a--></h3>
+				<h3 id="reg5" class="regindicator"><!--a href="#"-->Five<!--/a--></h3>
+				<h3 id="reg6" class="regindicator"><!--a href="#"-->End of Turn<!--/a--></h3>
+			<!--/div-->
+			<ul>
+				<li><div class="ph0"></div><span>Robots</span></li>
+				<li><div class="ph1"></div><span>Conveyors</span></li><!-- express and all-->
+				<li><div class="ph2"></div><span>Pushers</span></li>
+				<li><div class="ph3"></div><span>Gears</span></li>
+				<li><div class="ph4"></div><span>Crushers</span></li>
+				<li><div class="ph5"></div><span>Lasers</span></li>
+			</ul>
+		</div>
+		<div id="advanceregister">
+			<div class="oct_button" id="NextReg">
+				<img class="redlight" src="images/oct_button.png" alt="Next Phase"/>
+				<p>NEXT<br/>PHASE</p>
+			</div>
+			<div class="oct_button_sm" id="AutoNext">
+				<img class="redlight" src="images/oct_button.png" alt="Auto Phase"/>
+				<p>AUTO</p>
+			</div>
+			<div class="buttonguard"></div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p><small>Credits:&copy; 2012 <a href="http://www.rbrianredd.com" target="_blank">rbrianredd.com</a>.  
+	<br/>RoboRally is owned by <a href="http://www.wizards.com/default.asp?x=ah/prod/roborally" target="_blank">Wizards of the Coast</a>.
+	<br/>Robot likenesses also owned by others (<a href="http://asimo.honda.com/" target="_blank">Honda</a>, <a href="http://www.bbc.co.uk/doctorwho/dw" target="_blank">BBC</a>, 
+	<a href="http://www.mgm.com/" target="_blank">MGM</a>, <a href="http://www.starwars.com/" target="_blank">Lucasfilms</a>, 
+	<a href="http://www.timewarner.com/" target="_blank">Turner Entertainment</a>, and <a href="http://www.pixar.com/featurefilms/walle/" target="_blank">Pixar</a>).  
+	<br/>This is solely a non-for-profit venture intented for entertainment only.</small></p>
+</footer>
+
+<div id="playerconsole">
+	<h2>CONSOLE</h2>
+	<p class="closer">[X]</p>
+	<div class="oct_button" id="PDpanel">
+		<img class="yellowlight" src="images/oct_button.png" alt="Power Down"/>
+		<p>POWER<br/>DOWN</p>
+	</div>
+	<div id="curStatus">
+		Flag <span class="nxtflg"></span>
+		<br/><br/>Position: <span class="curpos"></span>
+		<br/>Facing: <span class="orient"></span>
+		<br/>Archive: <span class="arcpos"></span>
+	</div>
+	<div id="lifetokens"/>
+		<h4>ARCHIVE COPIES</h4>
+		<div id="lftk0" class="lftk"></div>
+		<div id="lftk1" class="lftk"></div>
+		<div id="lftk2" class="lftk"></div>
+	</div>
+	<div id="roboportrait">
+		<img src="images/robots/0_Front.png"/>
+		<span>OPTIONS</span>
+	</div>
+	<div class="oct_button" id="Engage">
+		<img class="greenlight" src="images/oct_button.png" alt="RUN"/>
+		<p>RUN</p>
+	</div>
+	<div id="damagetokens">
+		<div id="dt0" class="dtoken dtoken_last"></div>
+		<div id="dt1" class="dtoken dtoken_reg"></div>
+		<div id="dt2" class="dtoken dtoken_reg"></div>
+		<div id="dt3" class="dtoken dtoken_reg"></div>
+		<div id="dt4" class="dtoken dtoken_reg"></div>
+		<div id="dt5" class="dtoken dtoken_reg"></div>
+		<div id="dt6" class="dtoken"></div>
+		<div id="dt7" class="dtoken"></div>
+		<div id="dt8" class="dtoken"></div>
+		<div id="dt9" class="dtoken"></div>
+	</div>
+	<ul id="programhand">
+		<li id="hand1" class="ui-state-default programcard"></li>
+		<li id="hand2" class="ui-state-default programcard"></li>
+		<li id="hand3" class="ui-state-default programcard"></li>
+		<li id="hand4" class="ui-state-default programcard"></li>
+		<li id="hand5" class="ui-state-default programcard"></li>
+		<li id="hand6" class="ui-state-default programcard"></li>
+		<li id="hand7" class="ui-state-default programcard"></li>
+		<li id="hand8" class="ui-state-default programcard"></li>
+		<li id="hand9" class="ui-state-default programcard"></li>
+	</ul>
+	<ul id="programcompiled">
+		<li id="cpro1" class="programcard"></li>
+		<li id="cpro2" class="programcard"></li>
+		<li id="cpro3" class="programcard"></li>
+		<li id="cpro4" class="programcard"></li>
+		<li id="cpro5" class="programcard"></li>
+	</ul>
+</div>
+
+<div id="myoptionsboard">
+	<h2>MY OPTIONS</h2>
+	<p class="closer">[X]</p>
+	<ul></ul>
+</div>
+
+<div id="opoptionsboard">
+	<h2>ENEMY OPTIONS</h2>
+	<p class="closer">[X]</p>
+	<ul></ul>
+</div>
+
+<div id="rallylog">
+	<h2>LOG</h2>
+	<p class="closer">[X]</p>
+	<div id="logbody"></div>
+</div>
+
+<div id="GameOver">
+	<div id="WinnersCircle">
+		<h2>GAME OVER!</h2>
+		<div class="openlog monitor"><p>LOG</p></div>
+		<div id="NewGame">
+			<div class="oct_button" id="newgame">
+				<img class="flashinglight" src="images/oct_button.png" alt="New Game"/>
+				<p>NEW<br/>GAME</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Instructions">
+	<h2>Instructions</h2>
+	<p class="closer">[X]</p>
+	<iframe src='help/help.html'></iframe>
+</div>
+
+<script src="code/jquery-1.6.4.min.js"></script>
+<script src="code/jquery-css-transform.js"></script>
+<script src="code/jquery.rotate.js"></script>
+<script src="code/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="data/boarddata.js"></script>
+<script src="inc/rr_v10.5.js"></script>
+</body>
+</html>

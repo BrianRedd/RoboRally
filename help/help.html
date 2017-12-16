@@ -1,0 +1,75 @@
+<!doctype html>
+<meta charset="utf-8">
+
+
+<head>
+	<title>RoboRally Instructions</title>
+
+	<link href="help.css" rel="stylesheet">
+	
+	<script src="../code/jquery-1.6.4.min.js"></script>
+	<script src="tooltip.js"></script>
+	<script src="help.js"></script>
+
+</head>
+<body>
+<ul>
+	<li>Visit the <a href="http://www.wizards.com/default.asp?x=ah/prod/roborally" target="_blank">Official Site</a></li>
+	<li><a href="http://www.wizards.com/avalonhill/rules/roborally.pdf" target="_blank">Download the Rulebook</a></li>
+</ul>
+<h2>Introduction</h2>
+<blockquote cite="http://www.wizards.com/default.asp?x=ah/prod/roborally"><p>As one of several supercomputers in a fully automated widget factory, you have it made.</p>
+<p align="center">You are brilliant. 
+<br/>You are powerful. 
+<br/>You are sophisticated. 
+<br/>You are <span>BORED</span>.</p>
+<p>Time to enjoy a little fun at the factory's expense! With the other computers, program factory robots and pit them against each other in frantic, destructive races across the factory floors. Be the first to touch the flags, in order, and you win it all: the honor, the glory, the grudging respect of the other computers. But first you have to get your robot past obstacles like gaping pits, industrial lasers, moving conveyor belts and, of course, the other robots!</p></blockquote>
+
+<h2>General Instructions</h2>
+<p>To move your robot, you must program it; to do this requires using the <a href="../images/cards/card.png" class="preview" target="_blank">program cards</a> you will be dealt at the beginning of each turn.</p>
+<p>Each turn is comprised of five register phases.  So, in order to move your robot, you must select and order five program cards from your hand.  Once you've selected your program, click <a href="../images/thumbnails/Run_Thumb.png" class="preview" target="_blank">RUN</a> to compile the program.</p>
+<p>Once compiled, all the robots on the board will play their cards, one register phase at a time, and move accordingly.  The order of play is determined by the &quot;priority number&quot; of each program card.</p>
+<p>Robots will not only move according to their program, but they can also be affected by elements on the factory floor and by other robots.  In addition, at the end of each phase all robots will fire their onboard lasers directly ahead.  Any robot hit by either a robot laser or a factor laser will suffer damage.  For each point of damage a robot has suffered, it looses one program card from its hand.</p>
+<p>If a robot suffers more than four points of damage, it will receive less than five cards, meaning it will not have enough fresh cards to program all five registers.  When this happens, the register is considerd &quot;locked&quot; and will be filled by the program used for that register on the previous turn.</p>
+<p>There are two ways to heal your robot: First, if you end a turn on a <a href="../images/factory/repair1.png" class="preview" target="_blank">wrench</a> square, you will heal a point. Secondly, during your program phase you can choose to <a href="../images/thumbnails/PD_Thumb.png" class="preview" target="_blank">POWER DOWN</a>; doing so will heal your robot to full health, but the robot will be unable to do anything on the next turn (and it will still be subject to enemy and factory fire as well as factory elements).</p>
+<p>If a robot suffers <span>ten</span> points of damage, it will be destroyed. Robots can also be destroyed by falling into a <a href="../images/thumbnails/Pit_Thumb.png" class="preview" target="_blank">pit</a>, going off the board, or being crushed by an active <a href="../images/factory/crusher.png" class="preview" target="_blank">crusher</a>.  Destroyed robots will respawn on the last wrench they touched, with two points of damage and losing an &quot;Archive Copy&quot; in the process.  Each robot has a total of three Archive Copies.</p>
+<p>To win the rally, you must end a turn on each flag in order.  The first robot to do so wins!</p>
+
+<h2>Game Play</h2>
+<p>After selecting your robot, the number of opponents (computer controlled robots), and the rally course, you will be presented with your <span>CONSOLE</span>.</p>
+<p>At any time, you can re-open your Console by clicking your robot's summary (upper left hand corner).  In addition, you can open a log of all activities during the game by clicking the <a href="../images/thumbnails/Log_Thumb.png" class="preview" target="_blank">LOG</a> button in the upper right.</p>
+<p>From the console, you can rearrange the program cards by clicking and dragging them.  When done, click the <a href="../images/thumbnails/Run_Thumb.png" class="preview" target="_blank">RUN</a> button to start the turn.</p>
+<p>To progress to the next register phase, click the <a href="../images/thumbnails/Next_Thumb.png" class="preview" target="_blank">NEXT PHASE</a> button.  All robots will then all move according to their programs.</p>
+<p>Robots cannot move through walls, and hitting a wall will stop the robot's forward (or backward) movement.
+<p>Also, if a robot (A) hits another robot (B), the B will be pushed by A, as long as there are no obstructions.  For determination of who moves first, the priority of the robot's program card is used (with the higher priority moving first.</p>
+<p>After the robots move, the following board elements will take affect on any robot in the same square, in this order:</p>
+<ol>
+	<li><a href="../images/factory/conveyor200.png" class="preview" target="_blank">Express Conveyors</a> move robots one square in the direction of their arrow.</li>
+	<li>All <a href="../images/factory/conveyor100.png" class="preview" target="_blank">conveyors</a> move robots one square in the direction of their arrow.  Any conveyor (Express or normal) that pushes a robot onto another conveyor going another direction will also cause the moved robot to rotate 90&deg;.</li>
+	<li><a href="../images/factory/pusher.png" class="preview" target="_blank">Pushers</a>, when active, will push robots one square.  Pushers are only active on certain phases (denoted on the pusher image on the board).</li>
+	<li><a href="../images/factory/gear1.png" class="preview" target="_blank">Gears</a> will turn robots 90&deg;.</li>
+	<li><a href="../images/factory/crusher.png" class="preview" target="_blank">Crushers</a>, when active, will crush any robot beneath them, destroying them.  As with Pushers, Crushers are only active on certain phases.</li>
+	<li>Finally, lasers (both factory and robot) will fire.  For every beam in the same square as the robot at the end of the turn, the robot will take a point of damage (so two beams will result in two damage, etc.)</li>
+</ol>
+<p>Any robot ending their turn on a wrench will heal a point of damage (up to nine).  In addition, any robot on a wrench and hammer square will also get an <span>Option</span> (Options coming soon!).  Finally, robots ending a turn on the appropriately numbered flag will capture the flag and can go on to the next one.  The first robot to capture all flags, in order, will win.</p>
+<p>Any robot moving into a <a href="../images/thumbnails/Pit_Thumb.png" class="preview" target="_blank">pit</a> or off the board will immediately be destroyed.</p>
+<p>Destroyed robots will respawn on the last wrench they touched, and will lose one Archive Copy.  You do not need to end a turn on a wrench to reset your &quot;Archive spot&quot;; just ending a phase on a wrench will do this.  Your archive spot is listed in your Console (along with current position, facing, and the number and location of your next flag).</p>
+<p>In addition to ending turns on wrenches, the other way to heal your robot is to Power Down.  During any turn, you can choose to Power Down by pressing the <a href="../images/thumbnails/PD_Thumb.png" class="preview" target="_blank">POWER DOWN</a> button on the Console.  When you do this, on the NEXT turn, you will be restored to full health, but will be unable to do anything but sit still.  NOTE: Powered down robots can still be moved by factory elements, and can still be damaged by laser fire.  Any registers locked due to damage inflicted while being powered down will be populated by random programs.</p>
+
+<h2>Differences from Official Rules</h2>
+<p>This version of RoboRally has some variations from the official rules:</p>
+<ul>
+	<li>A robot (A) pushed into another robot (B) by board elements will use the priority of the A's last program card.  In other words, two robots pushed into the same spot by board elements will function as if using their own program's priority number.</li>
+	<li>Lasers are not stopped by the first robot they hit; they will continue until stopped by a wall, damaging all robots in the line of fire.</li>
+	<li>Crushers are from the 1994 version of the game, and are included in this version even though they were discontinued in the 2005 version.</li>
+	<li>Graphics are, primarily, from the 1994 version.</li>
+</ul>
+
+<h2>A Word about Artificial Intelligence</h2>
+<p>Your opponents in this version of RoboRally are controlled by the computer.  They are not controlled well.  I will endeavour to improve their &quot;intelligence&quot; in the future; until then, do not be surprised if you find your opponents marginally suicidal.  Because of this, they are given one additional archive copy (4, instead of your 3).</p>
+<p>GOOD LUCK!</p>
+<footer>
+	<p>Any comments or feedback would be greatly appreciated: <a href="mailto:me@rbrianredd.com">Email me!</a></p>
+</footer>
+</body>
+</html>
